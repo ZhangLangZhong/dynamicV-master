@@ -1,3 +1,3 @@
-# netVis
-netVis效果图
-![Image text](https://github.com/Rainy-Bear/netVis/blob/master/overview.png)
+#dynamicV
+
+version 1.0 一个时变动态图布局
