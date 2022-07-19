@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>netVis</title>
+
+    <link rel="shortcut icon" href="../static/img/icon.ico">
+
+    <script type="text/javascript" src="../static/lib/jquery/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript" src="../static/lib/d3/d3.min.js"></script>
+
+    <script src="../static/lib/bootstrap/bootstrap-table.min.js"></script>
+
+    <script src="../static/lib/echarts/echarts.min.js"></script>
+
+<!--    <script src="../static/lib/gpu/d3.v5.min.js"></script>-->
+
+    <script  src="../static/lib/gpu/NetV.js"></script>
+
+    <script src="../static/lib/bootstrap/bootstrap-table-zh-CN.min.js"></script>
+
+    <script src="../static/lib/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../static/lib/dat.gui/dat.gui.js"></script>
+
+    <link href="../static/css/lib/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" href="../static/css/lib/bootstrap-table.css">
+
+    <link rel="stylesheet" href="../static/lib/minimap/vis-network.min.css">
+
+    <script type="text/javascript" src="../static/lib/minimap/vis-network.min.js"></script>
+
+</head>
+<body>
+<div id="header">
+    <span class="title">网络结构可视分析系统</span>
+    <span class="time"></span>
+</div>
+<div id="all_view">
+    <form role="form" method="post" enctype=multipart/form-data>
+<!--        <input type="file" id="uploadFile" style="visibility:hidden"-->
+<!--               onchange="control_chart.handleFile(this.files,this.value)">-->
+    </form>
+
+{#   <div id="control">#}
+{#        <div id="mynetwork"></div>#}
+{#        <div id="minimapWrapper"#}
+{#            style="position: absolute; margin: 5px; border: 1px solid #ddd; overflow: hidden; background-color: #FFF; z-index: 9;"#}
+{#            class="minimapWrapperIdle">#}
+{#            <img id="minimapImage" class="minimapImage" />#}
+{#        </div>#}
+{##}
+{#       <div id="minimap1"></div>#}
+{#       <div id="minimap2"></div>#}
+{#       <div id="minimap3"></div>#}
+{#       <div id="minimap4"></div>#}
+{##}
+{#   </div>#}
+
+    <div id="main">
+{#        <button type="button" id="timeline_btn1">1</button>#}
+{#        <button type="button" id="timeline_btn2">2</button>#}
+{#        <button type="button" id="timeline_btn3">3</button>#}
+{#        <button type="button" id="timeline_btn4">4</button>#}
+
+
+
+{#        <div id="age_area">age_select#}
+{##}
+{#            <select id="ageSelect" style="width: 90px" onchange="ageChange()">#}
+{#                <option grade = '-1'>unselect</option>#}
+{#                <option grade = '1'>1</option>#}
+{#                <option grade = '2'>2</option>#}
+{#                <option grade = '3'>3</option>#}
+{#                <option grade = '4'>4</option>#}
+{#                <option grade = '5'>5</option>#}
+{#            </select>#}
+{##}
+{#        </div>#}
+{#        <div id="degree_area">deg_select#}
+{##}
+{#            <select id="degreeSelect" style="width: 90px">#}
+{#                <option grade = '-1'>unselect</option>#}
+{#                <option grade = '1'>1</option>#}
+{#                <option grade = '2'>2</option>#}
+{#                <option grade = '3'>3</option>#}
+{#                <option grade = '4'>4</option>#}
+{#                <option grade = '5'>5</option>#}
+{#            </select>#}
+{##}
+{#        </div>#}
+
+
+
+    </div>
+{#    <div id="over">#}
+<!--        <div class="loading" id="loading">-->
+{#        <div>#}
+{#            <span></span>#}
+{#            <span></span>#}
+{#            <span></span>#}
+{#            <span></span>#}
+{#            <span></span>#}
+{#            <span></span>#}
+{#            <span></span>#}
+{#            <span></span>#}
+{#        </div>#}
+{#    </div>#}
+
+
+{#    <div id="information">#}
+{#        <div id="realMini1"></div>#}
+{#        <div id="realMini2"></div>#}
+{#        <div id="realMini3"></div>#}
+{#        <div id="realMini4"></div>#}
+{#<div id="mynetwork"></div>#}
+{#        <div id="minimapWrapper"#}
+{#            style="position: absolute; margin: 5px; border: 1px solid #ddd; overflow: hidden; background-color: #FFF; z-index: 9;"#}
+{#            class="minimapWrapperIdle">#}
+{#            <img id="minimapImage" class="minimapImage" />#}
+{#        </div>#}
+{#    </div>#}
+
+
+
+
+    <div id="time_line"></div>
+
+{#   <div id="area_line"></div>#}
+
+{#    <div id="info_table">#}
+{#        <table id="data_table" class="table table-hover table-condensed"></table>#}
+{#    </div>#}
+</div>
+
+<script>
+    $('#over').mousemove(function(e){
+        var xx=e.originalEvent.x || e.originalEvent.layerX || 0;
+        var yy=e.originalEvent.y || e.originalEvent.layerY || 0;
+        $(this).text(xx+','+yy);
+    }
+)
+
+</script>
+
+<link rel="stylesheet" href="../static/css/all_view.css">
+
+<link rel="stylesheet" href="../static/css/control.css">
+
+<link rel="stylesheet" href="../static/css/main.css">
+
+<link rel="stylesheet" href="../static/css/information.css">
+
+<link rel="stylesheet" href="../static/css/time_line.css">
+
+<link rel="stylesheet" href="../static/css/area_line.css">
+
+<link rel="stylesheet" href="../static/css/info_table.css">
+
+<link rel="stylesheet" href="../static/css/gui.css">
+
+<script type="text/javascript" src="../static/js/ageChange.js"></script>
+
+<script type="text/javascript" src="../static/js/init_data.js"></script>
+
+<script type="text/javascript" src="../static/js/incremental_layout/river.js"></script>
+
+<!--<script type="text/javascript" src="../static/js/main_force.js"></script>-->
+
+<!--<script type="text/javascript" src="../static/js/main_bundle.js"></script>-->
+
+<!--<script type="text/javascript" src="../static/js/main_back.js"></script>-->
+
+<!--<script type="text/javascript" src="../static/js/information.js"></script>-->
+
+<!--<script type="text/javascript" src="../static/js/area_line.js"></script>-->
+
+<!--点击播放的那个框-->
+<script type="text/javascript" src="../static/js/time_line.js"></script>
+
+<!--<script type="text/javascript" src="../static/js/info_table.js"></script>-->
+
+<!--<script type="text/javascript" src="../static/js/file_save.js"></script>-->
+
+<!--<script type="text/javascript" src="../static/js/export.js"></script>-->
+
+<!--<script type="text/javascript" src="../static/js/incremental_layout/partition_LPA.js"></script>-->
+<!--动起来的时候用的-->
+<script type="text/javascript" src="../static/js/incremental_layout/deleteNodes.js"></script>
+<!--<script type="text/javascript" src="../static/js/incremental_layout/multiScaleLayoutV4.js"></script>-->
+
+<script type="text/javascript" src="../static/js/incremental_layout/info_bar.js"></script>
+
+<script type="text/javascript" src="../static/js/incremental_layout/d3layout.js"></script>
+<script type="text/javascript" src="../static/js/incremental_layout/AER.js"></script>
+<script type="text/javascript" src="../static/js/incremental_layout/SSBM.js"></script>
+<script type="text/javascript" src="../static/js/incremental_layout/AGE.js"></script>
+<script type="text/javascript" src="../static/js/incremental_layout/RepulsionAll.js"></script>
+<script type="text/javascript" src="../static/js/incremental_layout/incrementalLayoutNew.js"></script>
+<script type="text/javascript" src="../static/js/control.js"></script>
+</body>
+</html>

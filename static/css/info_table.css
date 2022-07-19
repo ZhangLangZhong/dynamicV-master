@@ -1,0 +1,86 @@
+#info_table {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: solid gray;
+    border-width: 1px 0 0 1px;
+    width: 80%;
+    height: 30%;
+}
+
+#info_table .fixed-table-pagination {
+    color: white;
+}
+
+#info_table table th, td {
+    color: white;
+    text-align: center;
+    font-size: 10px;
+}
+
+#info_table table tbody {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#info_table .fixed-table-toolbar .search, #info_table .fixed-table-toolbar .columns {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 21px;
+    margin-right: 5px;
+}
+
+#info_table .fixed-table-toolbar .columns .btn {
+    padding: 1px 4px;
+    font-size: 10px;
+}
+
+#info_table .fixed-table-container tbody .selected td {
+    background-color: black;
+}
+
+#info_table .fixed-table-toolbar .columns .btn .glyphicon {
+    top: 2px;
+}
+
+#info_table .fixed-table-pagination .pagination-info, #info_table .fixed-table-pagination.page-list {
+    line-height: 21px;
+}
+
+#info_table .fixed-table-pagination div.pagination, #info_table .fixed-table-pagination .pagination-detail {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-items: center;
+    margin-right: 5px;
+    font-size: 10px;
+}
+
+#info_table .form-control {
+    height: 21px;
+    width: 150px;
+}
+
+#info_table .dropdown-menu {
+    min-width: 80px;
+    text-align: center;
+    font-size: 10px;
+    padding: 0 0;
+}
+
+#info_table span .btn {
+    padding: 1px 4px;
+    font-size: 10px;
+}
+
+#info_table .pagination a {
+    padding: 1px 6px;
+}
+
+#info_table table tbody td:hover {
+    background-color: #C4C9CF;
+}
+
+#info_table table tbody tr:hover {
+    background-color: #737373;
+}

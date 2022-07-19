@@ -1,0 +1,134 @@
+#information {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: solid gray;
+    border-width: 0 0 1px 1px;
+    width: 15%;
+    height: 70%;
+    overflow: hidden;
+}
+
+.character_line {
+    stroke: #0CC5E8;
+    fill: none;
+}
+
+#list_container {
+    position: absolute;
+    top: 353px;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.item_div {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    border: solid gray;
+    border-width: 0 0 2px 0;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+.bar {
+    fill: #C4C9CF;
+}
+
+.item_text {
+    font-size: 11px;
+    font-family: sans-serif;
+    text-anchor: start;
+    fill: white;
+}
+
+.tip_label {
+    font-family: sans-serif;
+    text-anchor: start;
+    fill: white;
+    font-size: 9px;
+}
+
+.info_close {
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    top: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+}
+
+.info_trash {
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    top: 4px;
+    right: 25px;
+    width: 14px;
+    height: 14px;
+}
+
+.brush rect {
+    stroke: white;
+    stroke-dasharray: 2;
+    stroke-opacity: 0.7;
+    fill: white;
+    fill-opacity: 0.4;
+}
+#realMini1{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: solid gray;
+    border-width: 0 1px 1px 0;
+    width: 100%;
+    height: 25%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#realMini2{
+    position: absolute;
+    top: 25%;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: solid gray;
+    border-width: 0 1px 1px 0;
+    width: 100%;
+    height: 25%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#realMini3{
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: solid gray;
+    border-width: 0 1px 1px 0;
+    width: 100%;
+    height: 25%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#realMini4{
+    position: absolute;
+    top: 75%;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: solid gray;
+    border-width: 0 1px 1px 0;
+    width: 100%;
+    height: 25%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
