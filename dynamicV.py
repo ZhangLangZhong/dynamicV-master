@@ -562,7 +562,7 @@ def HAC_CLUSTRING():
 
         # print(distanceMap)
         # 让节点越多的节点越容易先占坑
-        distanceMap[str(hashTemp.get(linkSource)["id"]) + '#' + str(hashTemp.get(linkTarget)["id"])] = nodesDistance/hashTemp.get(linkTarget)['degree']
+        distanceMap[str(hashTemp.get(linkSource)["id"]) + '#' + str(hashTemp.get(linkTarget)["id"])] = nodesDistance/(hashTemp.get(linkTarget)['degree']*0.5)
 
     distanceMap = sorted(distanceMap.items(), key=lambda dist: dist[1], reverse=False)
 
