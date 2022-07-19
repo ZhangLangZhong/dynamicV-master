@@ -735,7 +735,9 @@ def HAC_CLUSTRING():
                     # print(6666666666666)
                     continue
 
-
+            flag = False
+            if flag:
+                pass
             # 2一方del了的情况
             # 2.1 .高del了 low还是白  456#518
             if (unsortedGroup.get(highGroupIndex) == None and unsortedGroup.get(lowGroupIndex) != None):
