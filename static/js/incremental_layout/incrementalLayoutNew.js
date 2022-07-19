@@ -1,5 +1,5 @@
 /**
- * Created by zhangye on 2018/6/5.
+ * Created by zhangLangzhong on 2022/7/19.
  */
 function IncrementalLayout() {
     var riverSocial = []
@@ -3516,11 +3516,26 @@ function IncrementalLayout() {
             },
             contentType: "application/json",
             success:function (d){
-                console.log("OKOK")
+                // console.log("OKOK")
 
+                // console.log(typeof d)
+                let jsonNodes = JSON.parse(d)
+
+                // console.log(jsonNodes)
+                // console.log(jsonNodes.nodes)
+                drawHACTimeGraph(jsonNodes.nodes)
+
+
+
+                // console.log(typeof jsonNodes)
+                // let jsonTemp = d.replace('\'',' \" ')
+                // let jsonNodes = JSON.parse(d)
+                // console.log(jsonNodes)
+                // console.log(typeof jsonNodes)
             },
             Error:function (){
                 console.log("error");
+
             }
         });
 
@@ -3615,6 +3630,21 @@ function IncrementalLayout() {
         degreeNumber = degreeChange()
         // alert(degreeNumber)
     })
+
+
+    // function drawHACTimeGraph(hacNodes){
+    //     // hacNodes.nodes().forEach(function (d){
+    //         hacNodes.forEach(function (d){
+    //
+    //             console.log(d)
+    //
+    //         })
+    //         // console.log(hacNodes)
+    //     }
+
+
+
+
 
 
     function random_color() {

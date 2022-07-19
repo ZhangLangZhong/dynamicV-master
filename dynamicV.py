@@ -392,11 +392,11 @@ def HAC_CLUSTRING():
 
     mergeRatio = 0.002
     #社区数量
-    clusterCenterNumber = 14
+    clusterCenterNumber = 28
 
 
     # print(999999999999)
-    layoutNodesInformation = request.args.get('nodeInformation')
+    layoutNodesInformation = request.args.get("nodeInformation")
     # print("888888888888888888888")
     # print(layoutNodesInformation)
     # print(type(layoutNodesInformation))
@@ -405,7 +405,7 @@ def HAC_CLUSTRING():
     # print(nodeJson)
     # print(type(nodeJson))
 
-    jsonNodeData = pd.read_json(layoutNodesInformation,orient='records')
+    jsonNodeData = pd.read_json(layoutNodesInformation,orient="records")
     # print(jsonNodeData)
 
     allNodes = {"nodes":[],"links":[]}
@@ -421,7 +421,7 @@ def HAC_CLUSTRING():
     # print(node_y)
     numberTemp = 0
     for i in range(0,len(jsonNodeData)):
-        value = {"id":node_id[i],"x":node_x[i],"y":node_y[i],"group":node_id[i],'index':numberTemp,'degree':node_degree[i],'status':-1}
+        value = {"id":node_id[i],"x":node_x[i],"y":node_y[i],"group":node_id[i],"index":numberTemp,"degree":node_degree[i],"status":-1}
         numberTemp = numberTemp + 1
         # print(value)
         allNodes["nodes"].append(value)
@@ -538,20 +538,20 @@ def HAC_CLUSTRING():
         # print(hashTemp.get(607))
         # print(hashTemp.get(607)['x'])
 
-        linkSource = int(i['source'])
-        linkTarget = int(i['target'])
+        linkSource = int(i["source"])
+        linkTarget = int(i["target"])
 
         # 如果targer的degree比source更大 那就交换二者 比如555degree为3  666degreee为6 555到666中
-        if hashTemp.get(int(i['target']))['degree'] > hashTemp.get(int(i['source']))['degree']:
+        if hashTemp.get(int(i["target"]))["degree"] > hashTemp.get(int(i["source"]))["degree"]:
             temp = linkSource
             linkSource = linkTarget
             linkTarget = temp
 
-        souX = hashTemp.get(linkSource)['x']
+        souX = hashTemp.get(linkSource)["x"]
         # print(souX)
-        souY = hashTemp.get(linkSource)['y']
-        tarX = hashTemp.get(linkTarget)['x']
-        tarY = hashTemp.get(linkTarget)['y']
+        souY = hashTemp.get(linkSource)["y"]
+        tarX = hashTemp.get(linkTarget)["x"]
+        tarY = hashTemp.get(linkTarget)["y"]
 
         # print()
         nodesDistance = (souX - tarX) * (souX - tarX) + (souY - tarY) * (souY - tarY)
@@ -562,10 +562,11 @@ def HAC_CLUSTRING():
 
         # print(distanceMap)
         # 让节点越多的节点越容易先占坑
-        distanceMap[str(hashTemp.get(linkSource)['id']) + '#' + str(hashTemp.get(linkTarget)['id'])] = nodesDistance/hashTemp.get(linkTarget)['degree']
+        distanceMap[str(hashTemp.get(linkSource)["id"]) + '#' + str(hashTemp.get(linkTarget)["id"])] = nodesDistance/hashTemp.get(linkTarget)['degree']
 
     distanceMap = sorted(distanceMap.items(), key=lambda dist: dist[1], reverse=False)
 
+    # print(allNodes)
     # 谁到谁有多远  小窗口几十到两三百的多
     print(distanceMap)
 
@@ -574,7 +575,7 @@ def HAC_CLUSTRING():
     #     print(hashTemp.get(lowIndex))
     #     value = {"id":hashTemp.get(lowIndex)['id'],"x":hashTemp.get(lowIndex)['x'],'group':hashTemp.get(lowIndex)['group',]}
 
-    unsortedGroup = {index:1 for index in range(len(allNodes['nodes']))}
+    unsortedGroup = {index:1 for index in range(len(allNodes["nodes"]))}
 
     # print(hashTemp.size())
 
@@ -611,15 +612,15 @@ def HAC_CLUSTRING():
         # print(_)          有多远
         # print(_)
         # print(unsortedGroup)
-        lowIndex, highIndex = int(key.split('#')[0]), int(key.split('#')[1])
+        lowIndex, highIndex = int(key.split("#")[0]), int(key.split("#")[1])
         # print(9999999999999999)
         # print(hashTemp.get(lowIndex)['index'])
         # print(hashTemp.get(highIndex)['index'])
 
-        if hashTemp.get(lowIndex)['index'] != hashTemp.get(highIndex)['index']:
+        if hashTemp.get(lowIndex)["index"] != hashTemp.get(highIndex)["index"]:
 
-            lowGroupIndex = hashTemp.get(lowIndex)['index']
-            highGroupIndex = hashTemp.get(highIndex)['index']
+            lowGroupIndex = hashTemp.get(lowIndex)["index"]
+            highGroupIndex = hashTemp.get(highIndex)["index"]
             # print(lowIndex)
             # print(highIndex)
             # print(lowGroupIndex)
@@ -989,14 +990,14 @@ def HAC_CLUSTRING():
         if topClusterCenterCount >= clusterCenterNumber:
             break
 
-    colorStore = ['or', 'og', 'ob', 'oc', 'om', 'oy', 'ok','^r', '^g', '^b', '^c', '^m', '^y', '^k','+r', '+g', '+b', '+c', '+m', '+y']
+    colorStore = ['or', 'og', 'ob', 'oc', 'om', 'oy', 'ok','^r', '^g', '^b', '^c', '^m', '^y', '^k','+r', '+g', '+b', '+c', '+m', '+y','pr', 'pg', 'pb', 'pc', 'pm', 'py','dr', 'dg', 'db', 'dc', 'dm', 'dy']
     # pylab.figure(figsize=(9, 9), dpi=80)
     plt.figure(figsize=(9, 9), dpi=80)
 
     # pylab.invert()
 
     for point in allNodes['nodes']:
-        print(point['index'])
+        # print(point['index'])
         if point['index'] < 0:
             color = colorStore[-1 * point['index'] - 1]
         else:
@@ -1011,9 +1012,21 @@ def HAC_CLUSTRING():
 
     plt.show()
 
-    print(allNodes)
+    jsonAllNodes = str(allNodes)
+    jsonTemp = jsonAllNodes.replace("'",'"')
+    # print(type(allNodes)) dict字典
 
-    return jsonify(layoutNodesInformation)
+    # print(type(jsonAllNodes))
+
+    # print(99999999)
+    # json_allNodes = json.dumps(allNodes)
+
+    # print(allNodes)
+    # print(jsonTemp)
+
+
+
+    return jsonify(jsonTemp)
 
 
 class KeyValue:
