@@ -1,0 +1,5 @@
+function drawHACTimeGraph(matrixInf) {
+
+
+
+}
