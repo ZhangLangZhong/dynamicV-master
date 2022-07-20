@@ -89,6 +89,7 @@ function drawHACTimeGraph(hacNodes) {
 
 
 //echarts版本
+//只有点
 function drawingHACGraph(centerNodes) {
     this.Mychart = echarts.init(document.getElementById("HACGraph"))
     option = {
