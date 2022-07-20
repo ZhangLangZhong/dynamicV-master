@@ -57,6 +57,8 @@ function IncrementalLayout() {
     const width_mid = 895;
     const height_mid = 400;
 
+    let HashFinalNodes = HashTable()
+
     let MAX_TABLE_LEN = 301;
 
     // console.log(1111)

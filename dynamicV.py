@@ -415,13 +415,14 @@ def HAC_CLUSTRING():
     node_x = jsonNodeData["x"]
     node_y = jsonNodeData["y"]
     node_degree = jsonNodeData["degree"]
+    node_links = jsonNodeData['links']
     # print(jsonNodeData)
     # print(node_x)
     # print(node_degree)
     # print(node_y)
     numberTemp = 0
     for i in range(0,len(jsonNodeData)):
-        value = {"id":node_id[i],"x":node_x[i],"y":node_y[i],"group":node_id[i],"index":numberTemp,"degree":node_degree[i],"status":-1}
+        value = {"id":node_id[i],"x":node_x[i],"y":node_y[i],"group":node_id[i],"index":numberTemp,"degree":node_degree[i],"status":-1,'links':node_links[i]}
         numberTemp = numberTemp + 1
         # print(value)
         allNodes["nodes"].append(value)
