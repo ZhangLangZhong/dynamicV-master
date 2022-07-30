@@ -1,10 +1,7 @@
 function drawHACTimeGraph(matrixInf) {
 
-
-    console.log(99999999)
-
-    console.log(8888888)
-    console.log(777777)
-
-    console.log(6666)
+    var a = 0
+   if (a == 0){
+       console.log(9999)
+   }
 }
